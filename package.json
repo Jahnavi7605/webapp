@@ -1,0 +1,21 @@
+{
+  "name": "yeet",
+  "version": "1.0.0",
+  "description": "yeet",
+  "main": "3000",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "yeet"
+  ],
+  "author": "yeet",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express-session": "^1.18.0",
+    "mysql": "^2.18.1",
+    "passport": "^0.7.0"
+  }
+}

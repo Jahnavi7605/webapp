@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <style>
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        #email-error, #password-error {
+            margin-top: 5px;
+        }
+
+        .login-link {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form id="signupForm" action="/signup" method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email_id" required>
+                <div id="email-error" style="color: red;"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <div id="password-error" style="color: red;"></div>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="login-link">
+            Already have an account? <a href="/">Login</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            if (!email.match(/\b[A-Za-z0-9._%+-]+@gmail\.com\b/)) {
+                document.getElementById('email-error').textContent = "Invalid email format (e.g., example@gmail.com)";
+                return;
+            } else {
+                document.getElementById('email-error').textContent = "";
+            }
+
+            if (password.length < 5 || !/^[a-zA-Z0-9]+$/.test(password)) {
+                document.getElementById('password-error').textContent = "Password must be at least 5 characters long and contain only letters and numbers.";
+            } else {
+                document.getElementById('password-error').textContent = "";
+                this.submit();
+            }
+        });
+    </script>
+</body>
+</html>
