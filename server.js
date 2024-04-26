@@ -6,7 +6,7 @@ const mysql = require('mysql');
 const fs = require('fs');
 
 const app = express();
-const port = 3000;
+const port = 80;
 
 // Middleware for logging requests
 app.use((req, res, next) => {
